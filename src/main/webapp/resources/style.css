@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.link {
+  background-color: yellow;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

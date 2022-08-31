@@ -146,6 +146,7 @@ function deleteData(obj) {
 			<c:if test="${not empty getModelList.employeeList}">
 				<table style="border: 2px solid black;">
 					<tr>
+						<th align="center" style="border: 2px solid black;"><b><spring:message code="label.column.sr" /></b></th>
 						<th align="center" style="border: 2px solid black;"><b><spring:message code="label.column.id" /></b></th>
 						<th align="center" style="border: 2px solid black;"><b><spring:message code="label.column.name" /></b></th>
 						<th align="center" style="border: 2px solid black;"><b><spring:message code="label.column.city" /></b></th>
@@ -155,6 +156,7 @@ function deleteData(obj) {
 					<c:forEach items="${getModelList.employeeList}" var="data" varStatus="status">
 						<tr>
 							<td align="center" style="border: 1px solid black;">${status.index + 1}</td>
+							<td align="center" style="border: 1px solid black;">${data.id}</td>
 							<td align="center" style="border: 1px solid black;">${data.name}</td>
 							<td align="center" style="border: 1px solid black;">${data.city}</td>
 							<td align="center" style="border: 1px solid black;">

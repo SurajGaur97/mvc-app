@@ -2,7 +2,7 @@
 This project is full monolithic application. Created on Spring MVC architecture with Hibernate-JPA to SQL Server datatbase connectivity
 
 
-For Pushing file type the following commands:
+For Pushing files, type the following commands:
 git status
 
 git add .

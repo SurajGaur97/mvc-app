@@ -107,6 +107,25 @@ function deleteData(obj) {
         }
 	});
 }
+
+function postModelToController() {
+	var myModel  = {};
+	myModel.id = "1";
+	myModel.name= "abc";
+	myModel.city = "def";
+	
+	$.ajax({
+	    url : "getModelFromFront.dispatch",
+	    type : "POST",
+	    data : myModel,
+	    success : function(response) {
+	       alert(response);
+	    },
+	    error : function(e) {
+	       alert(e);   
+	    }
+	});
+}
 </script>
 </head>
 
@@ -173,6 +192,9 @@ function deleteData(obj) {
 			</c:if>
 		</div>
 	</form:form>
+	
+	<br/><br/>
+	<input type="button" value="Post Model" onclick = "postModelToController()">
 	
 </body>
 

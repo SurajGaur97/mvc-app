@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,5 +74,14 @@ public class MyController {
 	@ResponseBody
 	public String updateData(@RequestParam Integer id, @RequestParam String name, @RequestParam String city) {
 		return myService.updateData(id, name, city);
+	}
+	
+	@RequestMapping(value = "getModelFromFront.dispatch", method = RequestMethod.POST)
+	@ResponseBody
+	public String getModelFromFront(MyModel myModel) {
+		if(myModel.getId() == null) {
+			return "Did not get Data!";
+		}
+		return "Got Data";
 	}
 }

@@ -12,6 +12,6 @@ For Pushing files, type the following commands:
 
     git push origin master (branch name is 'master' here).
 
-for pulling you request when something went wrong you can run the follong command:
+For pulling you request when something went wrong you can run the follong command:
 
     git pull origin

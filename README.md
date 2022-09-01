@@ -9,4 +9,4 @@ git add .
 
 git commit -m "Message"
 
-git push origin master (branch name is master here).
+git push origin master (branch name is 'master' here).

@@ -79,6 +79,9 @@ public class MyController {
 	@RequestMapping(value = "getModelFromFront.dispatch", method = RequestMethod.POST)
 	@ResponseBody
 	public String getModelFromFront(MyModel myModel) {
+		System.out.println("Id = " + myModel.getId());
+		System.out.println("Name = " + myModel.getName());
+		System.out.println("City = " + myModel.getCity());
 		if(myModel.getId() == null) {
 			return "Did not get Data!";
 		}

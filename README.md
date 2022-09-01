@@ -3,10 +3,15 @@ This project is full monolithic application. Created on Spring MVC architecture 
 
 
 For Pushing files, type the following commands:
-git status
 
-git add .
+    git status
 
-git commit -m "Message"
+    git add .
 
-git push origin master (branch name is 'master' here).
+    git commit -m "Message"
+
+    git push origin master (branch name is 'master' here).
+
+for pulling you request when something went wrong you can run the follong command:
+
+    git pull origin

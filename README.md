@@ -22,15 +22,22 @@ For pulling you request when something went wrong you can run the follong comman
 Create a new repository on the command line ::::::::::::::::::::::::::::
 
     git init
+    
     git add README.md
+    
     git commit -m "first commit"
+    
     git branch -M master
+    
     git remote add origin https://github.com/SurajGaur97/mvc-app.git
+    
     git push -u origin master
     
     
 Push an existing repository from the command line ::::::::::::::::::::::
 
-    git remote add origin https://github.com/SurajGaur97/dfjvd.git
+    git remote add origin https://github.com/SurajGaur97/mvc-app.git
+    
     git branch -M main
+    
     git push -u origin main

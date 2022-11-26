@@ -1,6 +1,9 @@
 package com.mvc.demo.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mvc.demo.model.MyModel;
 import com.mvc.demo.service.MyService;
@@ -45,21 +49,27 @@ public class MyController {
 	//After clicking submit button on index.jsp page.
 	@RequestMapping(value = "setMyModel.dispatch", method = RequestMethod.POST) //Here it is mandaratory to write 'setMyModel.dispatch'. if we write '/setMyModel' it will not able to get method.
 	public String setMyModel(@ModelAttribute("myModel")MyModel myModel) {
+		
 		myService.setModel(myModel);
+		
 		return "index";
 	}
 	
 	@RequestMapping(value = "getMyModel.dispatch", method = RequestMethod.GET)
 	public String getMyModel(@ModelAttribute("myModel")MyModel myModel, Model model) {
-		model.addAttribute("getModel", myService.getModel(myModel));
+		
+		model.addAttribute("getModel", myService.getModel(myModel.getId()));
 		model.addAttribute("myModel", new MyModel());
+		
 		return "index";
 	}
 	
 	@RequestMapping(value = "getMyModelList.dispatch", method = RequestMethod.GET)
 	public String getMyModelList(Model model) {
+		
 		model.addAttribute("getModelList", myService.getAll());
 		model.addAttribute("myModel", new MyModel());
+		
 		return "index";
 	}
 	
@@ -85,5 +95,22 @@ public class MyController {
 			return "Did not get Data!";
 		}
 		return "Got Data";
+	}
+	
+	@RequestMapping(value = "uploadFile.dispatch", method = RequestMethod.POST)
+	public String submit(HttpServletRequest request, @RequestParam("name") String name, @RequestParam("file") MultipartFile file, Model model) {
+		// Creating the directory to store file
+		//String rootPath = System.getProperty("catalina.home");	//gives the path of Tomcat root location.
+		String rootPath = request.getContextPath();
+		
+		//Saving the file to the location 'C:\mvc-app\ImageFiles'.
+		String message = myService.saveFile(name, rootPath, file);
+		
+		model.addAttribute("message", message);
+		model.addAttribute("file", file);
+	    model.addAttribute("name", name);
+	    model.addAttribute("myModel", new MyModel());
+	    
+	    return "index";
 	}
 }

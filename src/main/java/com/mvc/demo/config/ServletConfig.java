@@ -12,14 +12,19 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @ComponentScan(basePackages = COM_MVC_DEMO)
 public class ServletConfig {
 	
+	@Order(2)
 	@Bean
 	public ViewResolver getViewResolver(){		//for accessing views i the specified folder.
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -42,6 +47,23 @@ public class ServletConfig {
 		return messageSource;
 	}
 	
+    @Order(1)
+	@Bean
+    public TilesConfigurer tilesConfigurer() {
+        TilesConfigurer tilesConfigurer = new TilesConfigurer();
+        tilesConfigurer.setDefinitions(
+          new String[] { "/WEB-INF/tiles.xml" });
+        tilesConfigurer.setCheckRefresh(true);
+        
+        return tilesConfigurer;
+    }
+    
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        TilesViewResolver viewResolver = new TilesViewResolver();
+        registry.viewResolver(viewResolver);
+    }
+    
+
 	@Bean(name = "multipartResolver")
 	public CommonsMultipartResolver multipartResolver() {
 	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();

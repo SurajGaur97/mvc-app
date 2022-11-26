@@ -96,6 +96,11 @@ public class MyController {
 		}
 		return "Got Data";
 	}
+
+	@RequestMapping(value = "/contact")
+	public String contact() {
+		return "contact";
+	}
 	
 	@RequestMapping(value = "uploadFile.dispatch", method = RequestMethod.POST)
 	public String submit(HttpServletRequest request, @RequestParam("name") String name, @RequestParam("file") MultipartFile file, Model model) {

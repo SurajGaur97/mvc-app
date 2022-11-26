@@ -1,5 +1,11 @@
 # mvc-app
-This project is full monolithic application. Created on Spring MVC architecture with Hibernate-JPA to SQL Server datatbase connectivity
+This project is full monolithic application. Created on Spring MVC architecture with Hibernate-JPA to SQL Server datatbase connectivity for Sql dependency I have attached as zip file with name 'Sql Jdbc 4.0 Jar.zip'. Find it and attach it in maven dependencies location where it shows missing from in the project.
+
+###############################################
+
+It required Tomcate 8.0 to run the application.
+
+###############################################
 
 For Checking Status of your request :::::::::::::::::::::::::::::::::::
 

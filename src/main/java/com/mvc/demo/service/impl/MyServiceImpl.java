@@ -82,7 +82,6 @@ public class MyServiceImpl implements MyService {
 	 * @param contextPath
 	 * @param file
 	 */
-	@Override
 	public String saveFile(String fileName, String contextPath, MultipartFile file) {
 		
 		if (!file.isEmpty()) {

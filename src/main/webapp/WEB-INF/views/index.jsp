@@ -202,12 +202,31 @@ function postModelToController() {
 	<br/><br/>
 	
 	<p>----------------------------------File Uploading System--------------------------------</p>
-	<form method="POST" action="uploadFile" enctype="multipart/form-data">
+	<form method="POST" action="uploadFile.dispatch" enctype="multipart/form-data">
 		File to upload: <input type="file" name="file"><br /><br /> 
 		Name: <input type="text" name="name"><br /> <br /> 
 		<input type="submit" value="Upload"> Press here to upload the file!
-	</form>	
-	
+		<h2>Submitted File</h2>
+		<table>
+			<tr>
+				<td>OriginalFileName:</td>
+				<td>${file.originalFilename}</td>
+			</tr>
+			<tr>
+				<td>Type:</td>
+				<td>${file.contentType}</td>
+			</tr>
+			<tr>
+				<td>Name:</td>
+				<td>${name}</td>
+			</tr>
+			<tr>
+				<td>Status:</td>
+				<td>${message}</td>
+			</tr>
+		</table>
+	</form>
+
 </body>
 
 </html>

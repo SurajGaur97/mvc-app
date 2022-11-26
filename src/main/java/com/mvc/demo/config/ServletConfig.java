@@ -11,14 +11,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @ComponentScan(basePackages = COM_MVC_DEMO)
 public class ServletConfig {
 	
+	@Order(2)
 	@Bean
 	public ViewResolver getViewResolver(){		//for accessing views i the specified folder.
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -39,5 +44,21 @@ public class ServletConfig {
 		messageSource.setDefaultEncoding(DEFAULT_ENCODING);
 		messageSource.setCacheSeconds(10);
 		return messageSource;
-	}
+	}    
+	
+    @Order(1)
+	@Bean
+    public TilesConfigurer tilesConfigurer() {
+        TilesConfigurer tilesConfigurer = new TilesConfigurer();
+        tilesConfigurer.setDefinitions(
+          new String[] { "/WEB-INF/tiles.xml" });
+        tilesConfigurer.setCheckRefresh(true);
+        
+        return tilesConfigurer;
+    }
+    
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        TilesViewResolver viewResolver = new TilesViewResolver();
+        registry.viewResolver(viewResolver);
+    }
 }

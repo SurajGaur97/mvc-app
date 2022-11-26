@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" 
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
+<tiles-definitions>  
+    <definition name="base.definition" template="/WEB-INF/views/layout.jsp">  
+        <put-attribute name="title" value="" />  
+        <put-attribute name="header" value="/WEB-INF/views/header.jsp" />  
+        <put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />  
+        <put-attribute name="body" value="" />  
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />  
+    </definition>   
+    <definition name="contact" extends="base.definition">  
+        <put-attribute name="title" value="Contact Manager" />  
+        <put-attribute name="body" value="/WEB-INF/views/contact.jsp" />  
+    </definition>    
+    <definition name="hello" extends="base.definition">  
+        <put-attribute name="title" value="Hello Spring MVC" />  
+        <put-attribute name="body" value="/WEB-INF/views/hello.jsp" />  
+    </definition>
+    <definition name="index" extends="base.definition">  
+        <put-attribute name="title" value="Hello Spring MVC" />  
+        <put-attribute name="body" value="/WEB-INF/views/index.jsp" />  
+    </definition>
+</tiles-definitions>

@@ -87,4 +87,9 @@ public class MyController {
 		}
 		return "Got Data";
 	}
+	
+	@RequestMapping(value = "/contact")
+	public String contact() {
+		return "contact";
+	}
 }

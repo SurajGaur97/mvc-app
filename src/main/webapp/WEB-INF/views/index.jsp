@@ -130,11 +130,12 @@ function postModelToController() {
 </head>
 
 <body>
-	
+	<p>----------------------------------Spring Call--------------------------------</p>
 	<h1>This value is displayed through Spring:</h1>
 	<h1>${data}</h1>	<%-- This is the data from Spring system. Spring will bring the data and bind it here.--%>
 	<br/>
 	
+	<p>----------------------------------JavaScript Ajax Call--------------------------------</p>
 	<input type="button" value = "Azax API Call" onclick="abc()">
 	<div id="div">
 		<h1 id = "h1"></h1>
@@ -142,6 +143,7 @@ function postModelToController() {
 	</div>
 	<br/><br/>
 	
+	<p>----------------------------------Submit Data through Spring--------------------------------</p>
 	<form:form action="setMyModel.dispatch" method="POST" modelAttribute="myModel" id="formSubmitId">
 		<label><spring:message code="label.column.name" /></label>:&nbsp<form:input type="text" id="name" path="name"></form:input><br/><br/>
 		<label><spring:message code="label.column.city" /></label>:&nbsp<form:input type="text" id="city" path="city"></form:input><br/><br/>
@@ -149,6 +151,7 @@ function postModelToController() {
 	</form:form>
 	<br/>
 	
+	<p>----------------------------------Get Data through ID--------------------------------</p>
 	<form:form action="getMyModel.dispatch" method="GET" modelAttribute="myModel" id="formGetModel">
 		<label><spring:message code="label.column.id" /></label>:&nbsp<form:input type="text" id="id" path="id"></form:input><br/><br/>
 		<input type="button" value="GET DATA" onclick = "getData()">
@@ -159,6 +162,7 @@ function postModelToController() {
 		</c:if>
 	</form:form><br/>
 	
+	<p>----------------------------------Get Lost of Data Saved in Database--------------------------------</p>
 	<form:form action="getMyModelList.dispatch" method="GET" modelAttribute="myModel" id="formGetModelList">
 		<input type="button" value="GET LIST" onclick = "getDataList()"><br/><br/>
 		<div>
@@ -193,8 +197,16 @@ function postModelToController() {
 		</div>
 	</form:form>
 	
-	<br/><br/>
+	<p>----------------------------------Post a model through javaScript and get it--------------------------------</p>
 	<input type="button" value="Post Model" onclick = "postModelToController()">
+	<br/><br/>
+	
+	<p>----------------------------------File Uploading System--------------------------------</p>
+	<form method="POST" action="uploadFile" enctype="multipart/form-data">
+		File to upload: <input type="file" name="file"><br /><br /> 
+		Name: <input type="text" name="name"><br /> <br /> 
+		<input type="submit" value="Upload"> Press here to upload the file!
+	</form>	
 	
 </body>
 

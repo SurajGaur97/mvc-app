@@ -7,6 +7,10 @@ It required Tomcate 8.0 to run the application.
 
 ###############################################
 
+For typing all these commands you need to install git from: https://git-scm.com/downloads
+And after installation you need to go to you project directory then open here the windows cmd here.
+And then after you can try the bolow written command:
+
 For Checking Status of your request :::::::::::::::::::::::::::::::::::
 
     git status
@@ -27,16 +31,25 @@ For pulling you request when something went wrong you can run the follong comman
 
 Create a new repository on the command line ::::::::::::::::::::::::::::
 
+    #This command will create a .git folder to project root directory for holding all config related to git and for maintaning its history od committing file too.
     git init
-    
+
+    #for adding a new file named: README.md
     git add README.md
-    
+
+    #For adding all the files existing im the dorectory you have cheesen and opened the cmd
+    git add .
+
+    #its for commiting the file added as above
     git commit -m "first commit"
-    
+
+    #selecting the branch where it will commit
     git branch -M master
-    
+
+    #Setting the location on github to store the file
     git remote add origin https://github.com/SurajGaur97/mvc-app.git
-    
+
+    #pushing the file onto the provided loction on github
     git push -u origin master
     
     
